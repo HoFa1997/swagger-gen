@@ -1,0 +1,2473 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "HoFa API",
+    "description": "The HoFa API",
+    "version": "0.0.1",
+    "contact": {}
+  },
+  "servers": [],
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "AppController_getVersion",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/auth/get-otp": {
+      "post": {
+        "operationId": "AuthController_getOtp",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetOtpDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Login API"
+        ]
+      }
+    },
+    "/auth/check-otp": {
+      "post": {
+        "operationId": "AuthController_checkOtp",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckOtpDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Login API"
+        ]
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "operationId": "AuthController_logout",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Login API"
+        ]
+      }
+    },
+    "/panel/booth": {
+      "post": {
+        "operationId": "PanelController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBoothDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Booth API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "PanelController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Booth API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/panel/booth/export": {
+      "get": {
+        "operationId": "PanelController_export",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Booth API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/panel/booth/{id}": {
+      "patch": {
+        "operationId": "PanelController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBoothDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Booth API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "PanelController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Booth API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/event/hamtashow": {
+      "post": {
+        "operationId": "HamtashowController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateHamtashowDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Events API (Hamtashow)"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "HamtashowController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Events API (Hamtashow)"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/event/hamtashow/{id}": {
+      "patch": {
+        "operationId": "HamtashowController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateHamtashowDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Events API (Hamtashow)"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/event/hamtashow/export": {
+      "get": {
+        "operationId": "HamtashowController_export",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Events API (Hamtashow)"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/event/hamtapitch": {
+      "post": {
+        "operationId": "HamtapitchController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateHamtapitchDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Events API (Hamtapitch)"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "HamtapitchController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Events API (Hamtapitch)"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/event/hamtapitch/export": {
+      "get": {
+        "operationId": "HamtapitchController_export",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Events API (Hamtapitch)"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/event/hamtapitch/{id}": {
+      "patch": {
+        "operationId": "HamtapitchController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateHamtapitchDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Events API (Hamtapitch)"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/panel/users/export": {
+      "get": {
+        "operationId": "UsersController_export",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "User API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/panel/users": {
+      "post": {
+        "operationId": "UsersController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "User API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "UsersController_findAll",
+        "parameters": [
+          {
+            "name": "page",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "pageSize",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "User API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/panel/users/{id}": {
+      "get": {
+        "operationId": "UsersController_findOne",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "User API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "UsersController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "User API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "UsersController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "User API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/panel/users/users/dashboard": {
+      "get": {
+        "operationId": "UsersController_dashboard",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "User API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/profile": {
+      "get": {
+        "operationId": "ProfileController_profile",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Profile API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "ProfileController_updateProfile",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProfileDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Profile API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/payment/factor": {
+      "get": {
+        "operationId": "PaymentController_getFactor",
+        "parameters": [
+          {
+            "name": "productType",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "enum": [
+                "hamtashow",
+                "hamtapitch",
+                "hamtayab",
+                "class"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "productId",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          {
+            "name": "discount",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the payment factor"
+          }
+        },
+        "tags": [
+          "Payment API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/payment/all-factor": {
+      "get": {
+        "operationId": "PaymentController_getAllFactor",
+        "parameters": [
+          {
+            "name": "status",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "enum": [
+                "paid",
+                "unpaid"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns all payment factors"
+          }
+        },
+        "tags": [
+          "Payment API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/payment/checkout": {
+      "post": {
+        "operationId": "PaymentController_requestPayment",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateFactorDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Requests payment"
+          },
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Payment API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/payment/response": {
+      "get": {
+        "operationId": "PaymentController_paymentResponse",
+        "parameters": [
+          {
+            "name": "Authority",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns payment response"
+          }
+        },
+        "tags": [
+          "Payment API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/event/hamtayab": {
+      "post": {
+        "operationId": "HamtayabController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateHamtayabDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Hamtayab API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "HamtayabController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Hamtayab API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/event/hamtayab/export": {
+      "get": {
+        "operationId": "HamtayabController_export",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Hamtayab API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/event/hamtayab/{id}": {
+      "get": {
+        "operationId": "HamtayabController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Hamtayab API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "HamtayabController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateHamtayabDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Hamtayab API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/panel/class": {
+      "post": {
+        "operationId": "ClassController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateClassDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Class API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "ClassController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Class API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/panel/class/{categoryName}": {
+      "get": {
+        "operationId": "ClassController_findClassByCategoryName",
+        "parameters": [
+          {
+            "name": "categoryName",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Class API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/panel/class/class-users/{classId}": {
+      "get": {
+        "operationId": "ClassController_getUsersByClass",
+        "parameters": [
+          {
+            "name": "classId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Class API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/panel/class/class-users/excel/{classId}": {
+      "get": {
+        "operationId": "ClassController_getUsersExcelByClass",
+        "parameters": [
+          {
+            "name": "classId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Class API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/panel/class/single/{id}": {
+      "get": {
+        "operationId": "ClassController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Class API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/panel/class/{id}": {
+      "patch": {
+        "operationId": "ClassController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateClassDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Class API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "ClassController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Class API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/discount": {
+      "post": {
+        "operationId": "DiscountController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDiscountDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Discount API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "DiscountController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Discount API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/discount/{id}": {
+      "patch": {
+        "operationId": "DiscountController_update",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDiscountDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Discount API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "DiscountController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Discount API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/news": {
+      "post": {
+        "operationId": "NewsController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateNewsDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "News API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "NewsController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "News API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/news/{slug}": {
+      "get": {
+        "operationId": "NewsController_findOne",
+        "parameters": [
+          {
+            "name": "slug",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "News API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    },
+    "/news/{id}": {
+      "delete": {
+        "operationId": "NewsController_softDelete",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "News API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "NewsController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateNewsDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "News API"
+        ],
+        "security": [
+          {
+            "cookie": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GetOtpDto": {
+        "type": "object",
+        "properties": {
+          "phone": {
+            "type": "string",
+            "default": "09122244463"
+          }
+        },
+        "required": [
+          "phone"
+        ]
+      },
+      "CheckOtpDto": {
+        "type": "object",
+        "properties": {
+          "phone": {
+            "type": "string",
+            "default": "09122244463"
+          },
+          "confirmPhone": {
+            "type": "string",
+            "default": "224466"
+          }
+        },
+        "required": [
+          "phone",
+          "confirmPhone"
+        ]
+      },
+      "CreateBoothDto": {
+        "type": "object",
+        "properties": {
+          "typeOfParticipation": {
+            "type": "string",
+            "default": "سالن جنب تالار اصلی برج میلاد"
+          },
+          "type": {
+            "enum": [
+              "numerical",
+              "meter"
+            ],
+            "type": "string",
+            "default": "meter"
+          },
+          "earlyPrice": {
+            "type": "number",
+            "default": 5960000
+          },
+          "earlyDate": {
+            "format": "date-time",
+            "type": "string",
+            "default": "2023-12-23T18:47:16.669Z"
+          },
+          "normalPrice": {
+            "type": "number",
+            "default": 6940000
+          },
+          "normalDate": {
+            "format": "date-time",
+            "type": "string",
+            "default": "2023-12-23T18:47:16.669Z"
+          },
+          "latePrice": {
+            "type": "number",
+            "default": 7940000
+          },
+          "description": {
+            "type": "string",
+            "default": "هر متر مربع )م.م.( بهرهبرداری غرفههای رده A بدون غرفهسازی"
+          }
+        },
+        "required": [
+          "typeOfParticipation",
+          "type",
+          "earlyPrice",
+          "earlyDate",
+          "normalPrice",
+          "normalDate",
+          "latePrice",
+          "description"
+        ]
+      },
+      "UpdateBoothDto": {
+        "type": "object",
+        "properties": {
+          "typeOfParticipation": {
+            "type": "string",
+            "default": "سالن جنب تالار اصلی برج میلاد"
+          },
+          "type": {
+            "enum": [
+              "numerical",
+              "meter"
+            ],
+            "type": "string",
+            "default": "meter"
+          },
+          "earlyPrice": {
+            "type": "number",
+            "default": 5960000
+          },
+          "earlyDate": {
+            "format": "date-time",
+            "type": "string",
+            "default": "2023-12-23T18:47:16.669Z"
+          },
+          "normalPrice": {
+            "type": "number",
+            "default": 6940000
+          },
+          "normalDate": {
+            "format": "date-time",
+            "type": "string",
+            "default": "2023-12-23T18:47:16.669Z"
+          },
+          "latePrice": {
+            "type": "number",
+            "default": 7940000
+          },
+          "description": {
+            "type": "string",
+            "default": "هر متر مربع )م.م.( بهرهبرداری غرفههای رده A بدون غرفهسازی"
+          }
+        }
+      },
+      "BoothInfo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "64f4d70411e45c0556a023e9"
+          },
+          "count": {
+            "type": "string",
+            "example": "5"
+          }
+        },
+        "required": [
+          "id",
+          "count"
+        ]
+      },
+      "CreateHamtashowDto": {
+        "type": "object",
+        "properties": {
+          "personType": {
+            "enum": [
+              "HOGHOGHI",
+              "HAGHIGHI"
+            ],
+            "type": "string"
+          },
+          "activityGroups": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "representatives": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "boothArray": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BoothInfo"
+            }
+          },
+          "firstName": {
+            "type": "string",
+            "default": "علی"
+          },
+          "lastName": {
+            "type": "string",
+            "default": "علی پور"
+          },
+          "nationalCode": {
+            "type": "string",
+            "default": "000000"
+          },
+          "companyName": {
+            "type": "string",
+            "default": "دال"
+          },
+          "shenaseMelli": {
+            "type": "string",
+            "default": "000000"
+          },
+          "codeSabt": {
+            "type": "string",
+            "default": "000000"
+          },
+          "codeEghtesadi": {
+            "type": "string",
+            "default": "000000"
+          },
+          "zipCode": {
+            "type": "string",
+            "default": "000000"
+          },
+          "address": {
+            "type": "string",
+            "default": "تهران - نیاوران"
+          },
+          "path": {
+            "type": "string",
+            "format": "binary"
+          }
+        },
+        "required": [
+          "personType",
+          "activityGroups",
+          "representatives",
+          "boothArray",
+          "path"
+        ]
+      },
+      "UpdateHamtashowDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": [
+              "PENDING",
+              "UNPAID",
+              "REJECT",
+              "PAID"
+            ],
+            "type": "string"
+          },
+          "documentLink": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "required": true,
+                "type": "string"
+              },
+              "link": {
+                "required": true,
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [
+          "status",
+          "documentLink"
+        ]
+      },
+      "CreateHamtapitchDto": {
+        "type": "object",
+        "properties": {
+          "personType": {
+            "enum": [
+              "HOGHOGHI",
+              "HAGHIGHI"
+            ],
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string",
+            "default": "علی"
+          },
+          "representatives": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "lastName": {
+            "type": "string",
+            "default": "علی پور"
+          },
+          "nationalCode": {
+            "type": "string",
+            "default": "000000"
+          },
+          "companyName": {
+            "type": "string",
+            "default": "دال"
+          },
+          "shenaseMelli": {
+            "type": "string",
+            "default": "000000"
+          },
+          "codeSabt": {
+            "type": "string",
+            "default": "000000"
+          },
+          "codeEghtesadi": {
+            "type": "string",
+            "default": "000000"
+          },
+          "zipCode": {
+            "type": "string",
+            "default": "000000"
+          },
+          "address": {
+            "type": "string",
+            "default": "تهران - نیاوران"
+          },
+          "pitchFilePath": {
+            "type": "string",
+            "format": "binary"
+          },
+          "teamFilePath": {
+            "type": "string",
+            "format": "binary"
+          }
+        },
+        "required": [
+          "personType",
+          "representatives",
+          "pitchFilePath",
+          "teamFilePath"
+        ]
+      },
+      "UpdateHamtapitchDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": [
+              "PENDING",
+              "REJECT",
+              "ACCEPT"
+            ],
+            "type": "string"
+          },
+          "documentLink": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "required": true,
+                "type": "string"
+              },
+              "link": {
+                "required": true,
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [
+          "status",
+          "documentLink"
+        ]
+      },
+      "CreateUserDto": {
+        "type": "object",
+        "properties": {
+          "phone": {
+            "type": "string",
+            "default": "09123456789"
+          },
+          "firstName": {
+            "type": "string",
+            "default": "حسین"
+          },
+          "lastName": {
+            "type": "string",
+            "default": "خسروی"
+          },
+          "role": {
+            "enum": [
+              "ADMIN",
+              "MEMBER",
+              "HAMTA_SHOW_ADMIN",
+              "HAMTA_PITCH_ADMIN",
+              "HAMTA_YAB_ADMIN",
+              "HAMTA_CLASS_ADMIN",
+              "NEWS_ADMIN"
+            ],
+            "type": "string",
+            "default": "MEMBER"
+          }
+        },
+        "required": [
+          "phone",
+          "firstName",
+          "lastName",
+          "role"
+        ]
+      },
+      "UpdateUserDto": {
+        "type": "object",
+        "properties": {
+          "phone": {
+            "type": "string",
+            "default": "09123456789"
+          },
+          "firstName": {
+            "type": "string",
+            "default": "حسین"
+          },
+          "lastName": {
+            "type": "string",
+            "default": "خسروی"
+          },
+          "role": {
+            "enum": [
+              "ADMIN",
+              "MEMBER",
+              "HAMTA_SHOW_ADMIN",
+              "HAMTA_PITCH_ADMIN",
+              "HAMTA_YAB_ADMIN",
+              "HAMTA_CLASS_ADMIN",
+              "NEWS_ADMIN"
+            ],
+            "type": "string",
+            "default": "MEMBER"
+          }
+        }
+      },
+      "UpdateProfileDto": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "default": "حسین"
+          },
+          "lastName": {
+            "type": "string",
+            "default": "خسروی"
+          },
+          "email": {
+            "type": "string",
+            "default": "hossein@gmail.com"
+          }
+        },
+        "required": [
+          "firstName",
+          "lastName",
+          "email"
+        ]
+      },
+      "ObjectId": {
+        "type": "object",
+        "properties": {}
+      },
+      "CreateFactorDto": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "default": "",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ObjectId"
+              }
+            ]
+          },
+          "productType": {
+            "enum": [
+              "hamtashow",
+              "hamtapitch",
+              "hamtayab",
+              "class"
+            ],
+            "type": "string"
+          },
+          "discount": {
+            "type": "string",
+            "default": null
+          },
+          "callback_url": {
+            "type": "string",
+            "default": "http://localhost:3002/payment/response"
+          }
+        },
+        "required": [
+          "productId",
+          "productType",
+          "callback_url"
+        ]
+      },
+      "CreateHamtayabDto": {
+        "type": "object",
+        "properties": {
+          "personType": {
+            "enum": [
+              "HOGHOGHI",
+              "HAGHIGHI"
+            ],
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string",
+            "default": "علی"
+          },
+          "representatives": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "lastName": {
+            "type": "string",
+            "default": "علی پور"
+          },
+          "nationalCode": {
+            "type": "string",
+            "default": "000000"
+          },
+          "companyName": {
+            "type": "string",
+            "default": "دال"
+          },
+          "shenaseMelli": {
+            "type": "string",
+            "default": "000000"
+          },
+          "codeSabt": {
+            "type": "string",
+            "default": "000000"
+          },
+          "codeEghtesadi": {
+            "type": "string",
+            "default": "000000"
+          },
+          "zipCode": {
+            "type": "string",
+            "default": "000000"
+          },
+          "address": {
+            "type": "string",
+            "default": "تهران - نیاوران"
+          },
+          "pitchFilePath": {
+            "type": "string",
+            "format": "binary"
+          },
+          "teamFilePath": {
+            "type": "string",
+            "format": "binary"
+          }
+        },
+        "required": [
+          "personType",
+          "representatives",
+          "pitchFilePath",
+          "teamFilePath"
+        ]
+      },
+      "UpdateHamtayabDto": {
+        "type": "object",
+        "properties": {
+          "personType": {
+            "enum": [
+              "HOGHOGHI",
+              "HAGHIGHI"
+            ],
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string",
+            "default": "علی"
+          },
+          "representatives": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "lastName": {
+            "type": "string",
+            "default": "علی پور"
+          },
+          "nationalCode": {
+            "type": "string",
+            "default": "000000"
+          },
+          "companyName": {
+            "type": "string",
+            "default": "دال"
+          },
+          "shenaseMelli": {
+            "type": "string",
+            "default": "000000"
+          },
+          "codeSabt": {
+            "type": "string",
+            "default": "000000"
+          },
+          "codeEghtesadi": {
+            "type": "string",
+            "default": "000000"
+          },
+          "zipCode": {
+            "type": "string",
+            "default": "000000"
+          },
+          "address": {
+            "type": "string",
+            "default": "تهران - نیاوران"
+          },
+          "pitchFilePath": {
+            "type": "string",
+            "format": "binary"
+          },
+          "teamFilePath": {
+            "type": "string",
+            "format": "binary"
+          },
+          "status": {
+            "enum": [
+              "PENDING",
+              "REJECT",
+              "ACCEPT"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "HeadlineInfoDto": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "default": "title1"
+          },
+          "description": {
+            "type": "string",
+            "default": "description1"
+          }
+        },
+        "required": [
+          "title",
+          "description"
+        ]
+      },
+      "CreateClassDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "default": "name 1"
+          },
+          "description": {
+            "type": "string",
+            "default": "description 1"
+          },
+          "classType": {
+            "enum": [
+              "online",
+              "present"
+            ],
+            "type": "string",
+            "default": "present"
+          },
+          "category": {
+            "enum": [
+              "hamayesh",
+              "hamneshast",
+              "hamamoz"
+            ],
+            "type": "string",
+            "default": "hamamoz"
+          },
+          "earlyPrice": {
+            "type": "number",
+            "default": 10000
+          },
+          "normalPrice": {
+            "type": "number",
+            "default": 20000
+          },
+          "earlyDate": {
+            "format": "date-time",
+            "type": "string",
+            "default": "2023-12-23T18:47:16.807Z"
+          },
+          "startCourseDate": {
+            "format": "date-time",
+            "type": "string",
+            "default": "2023-12-23T18:47:16.807Z"
+          },
+          "endCourseDate": {
+            "format": "date-time",
+            "type": "string",
+            "default": "2023-12-23T18:47:16.807Z"
+          },
+          "address": {
+            "type": "string",
+            "default": "address Tehran"
+          },
+          "link": {
+            "type": "string",
+            "default": "https://google.com"
+          },
+          "banner": {
+            "type": "string",
+            "format": "binary"
+          },
+          "quantity": {
+            "type": "number",
+            "default": 50
+          },
+          "teacher": {
+            "default": [
+              {
+                "title": "title1",
+                "description": "description1"
+              }
+            ],
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HeadlineInfoDto"
+            }
+          },
+          "speaker": {
+            "default": [
+              {
+                "title": "title1",
+                "description": "description1"
+              }
+            ],
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HeadlineInfoDto"
+            }
+          },
+          "headline": {
+            "default": [
+              {
+                "title": "title1",
+                "description": "description1"
+              }
+            ],
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HeadlineInfoDto"
+            }
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "classType",
+          "category",
+          "earlyPrice",
+          "normalPrice",
+          "earlyDate",
+          "startCourseDate",
+          "endCourseDate",
+          "address",
+          "banner",
+          "quantity",
+          "teacher",
+          "speaker",
+          "headline"
+        ]
+      },
+      "UpdateClassDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "default": "name 1"
+          },
+          "description": {
+            "type": "string",
+            "default": "description 1"
+          },
+          "classType": {
+            "enum": [
+              "online",
+              "present"
+            ],
+            "type": "string",
+            "default": "present"
+          },
+          "category": {
+            "enum": [
+              "hamayesh",
+              "hamneshast",
+              "hamamoz"
+            ],
+            "type": "string",
+            "default": "hamamoz"
+          },
+          "earlyPrice": {
+            "type": "number",
+            "default": 10000
+          },
+          "normalPrice": {
+            "type": "number",
+            "default": 20000
+          },
+          "earlyDate": {
+            "format": "date-time",
+            "type": "string",
+            "default": "2023-12-23T18:47:16.807Z"
+          },
+          "startCourseDate": {
+            "format": "date-time",
+            "type": "string",
+            "default": "2023-12-23T18:47:16.807Z"
+          },
+          "endCourseDate": {
+            "format": "date-time",
+            "type": "string",
+            "default": "2023-12-23T18:47:16.807Z"
+          },
+          "address": {
+            "type": "string",
+            "default": "address Tehran"
+          },
+          "link": {
+            "type": "string",
+            "default": "https://google.com"
+          },
+          "banner": {
+            "type": "string",
+            "format": "binary"
+          },
+          "quantity": {
+            "type": "number",
+            "default": 50
+          },
+          "teacher": {
+            "default": [
+              {
+                "title": "title1",
+                "description": "description1"
+              }
+            ],
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HeadlineInfoDto"
+            }
+          },
+          "speaker": {
+            "default": [
+              {
+                "title": "title1",
+                "description": "description1"
+              }
+            ],
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HeadlineInfoDto"
+            }
+          },
+          "headline": {
+            "default": [
+              {
+                "title": "title1",
+                "description": "description1"
+              }
+            ],
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HeadlineInfoDto"
+            }
+          }
+        }
+      },
+      "CreateDiscountDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "default": "kopon12"
+          },
+          "quantity": {
+            "type": "number",
+            "default": 10
+          },
+          "type": {
+            "enum": [
+              "percentage",
+              "constant"
+            ],
+            "type": "string"
+          },
+          "productType": {
+            "enum": [
+              "hamtashow",
+              "hamtapitch",
+              "hamtayab",
+              "class"
+            ],
+            "type": "string"
+          },
+          "amount": {
+            "type": "number",
+            "default": 70
+          }
+        },
+        "required": [
+          "name",
+          "quantity",
+          "type",
+          "productType",
+          "amount"
+        ]
+      },
+      "UpdateDiscountDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "default": "kopon12"
+          },
+          "quantity": {
+            "type": "number",
+            "default": 10
+          },
+          "type": {
+            "enum": [
+              "percentage",
+              "constant"
+            ],
+            "type": "string"
+          },
+          "productType": {
+            "enum": [
+              "hamtashow",
+              "hamtapitch",
+              "hamtayab",
+              "class"
+            ],
+            "type": "string"
+          },
+          "amount": {
+            "type": "number",
+            "default": 70
+          }
+        }
+      },
+      "CreateNewsDto": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "example": "هوش مصنوعی"
+          },
+          "slug": {
+            "type": "string",
+            "example": "ai-content"
+          },
+          "links": {
+            "type": "string",
+            "example": "[\"ASD\",\"ASD\"]"
+          },
+          "image": {
+            "type": "string",
+            "format": "binary"
+          },
+          "content": {
+            "type": "string",
+            "example": "محتوا درباره هوش مصنوعی"
+          }
+        },
+        "required": [
+          "title",
+          "slug",
+          "links",
+          "image",
+          "content"
+        ]
+      },
+      "UpdateNewsDto": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "example": "هوش مصنوعی"
+          },
+          "slug": {
+            "type": "string",
+            "example": "ai-content"
+          },
+          "links": {
+            "type": "string",
+            "example": "[\"ASD\",\"ASD\"]"
+          },
+          "image": {
+            "type": "string",
+            "format": "binary"
+          },
+          "content": {
+            "type": "string",
+            "example": "محتوا درباره هوش مصنوعی"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "isDeleted"
+        ]
+      }
+    },
+    "securitySchemes": {
+      "cookie": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "connect.sid"
+      }
+    }
+  }
+}
