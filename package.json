@@ -10,9 +10,11 @@
     "preview": "vite preview",
     "merge:swagger": "npx openapi-merge-cli --config ./src/swagger/swagger.config.json",
     "generate:sdk": "npx swagger-typescript-api -p ./src/swagger/swagger.output.json -o ./src/models -n axios.ts",
-    "output:swagger": "npm run merge:swagger && npm run generate:sdk"
+    "output:swagger": "npm run merge:swagger && npm run generate:sdk",
+    "generate:query": "npx --package @7nohe/openapi-react-query-codegen openapi-rq -i ./src/swagger/swagger.output.json -c axios"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.17.1",
     "axios": "^1.6.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
